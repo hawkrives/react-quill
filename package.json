@@ -12,7 +12,8 @@
   "scripts": {
     "test": "make test",
     "build": "make build",
-    "prepublish": "make dist"
+    "prepublish": "make dist",
+    "postpublish": "make clean"
   },
   "keywords": [
     "rich",
