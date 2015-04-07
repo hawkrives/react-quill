@@ -32,6 +32,33 @@ const defaultItems = [
 	]},
 ]
 
+function renderGroup({label, items}) {
+	return <span key={label} className='ql-format-group'>
+		{items.map(renderItem)}
+	</span>
+}
+
+function renderChoiceItem({label, value}) {
+	return <option key={label || value} value={value}>
+		{label}
+	</option>
+}
+
+function renderChoices({label, type, items}) {
+	return <select
+		key={label}
+		className={`ql-${type}`}>
+		{items.map(renderChoiceItem)}
+	</select>
+}
+
+function renderAction({label, value, type}) {
+	return <span
+		key={label || value}
+		className={`ql-format-button ql-${type}`}
+		title={label} />
+}
+
 export default class QuillToolbar extends React.Component {
 	static propTypes = {
 		className: T.string,
@@ -42,39 +69,12 @@ export default class QuillToolbar extends React.Component {
 		items: defaultItems,
 	}
 
-	renderGroup({label, items}) {
-		return <span key={label} className='ql-format-group'>
-			{items.map(this.renderItem)}
-		</span>
-	}
-
-	renderChoiceItem({label, value}) {
-		return <option key={label || value} value={value}>
-			{label}
-		</option>
-	}
-
-	renderChoices({label, type, items}) {
-		return <select
-			key={label}
-			className={`ql-${type}`}>
-			{items.map(this.renderChoiceItem)}
-		</select>
-	}
-
-	renderAction({label, value, type}) {
-		return <span
-			key={label || value}
-			className={`ql-format-button ql-${type}`}
-			title={label} />
-	}
-
 	renderItem(item) {
 		const mapping = {
-			group: this.renderGroup,
-			align: this.renderChoices,
-			size: this.renderChoices,
-			action: this.renderAction,
+			group: renderGroup,
+			align: renderChoices,
+			size: renderChoices,
+			action: renderAction,
 		}
 		const renderer = mapping[item.type] || mapping.action
 		return renderer(item)
@@ -82,7 +82,7 @@ export default class QuillToolbar extends React.Component {
 
 	render() {
 		return <div className={cx('quill-toolbar', this.props.className)}>
-			{this.props.items.map(this.renderItem)}
+			{this.props.items.map(renderItem)}
 		</div>
 	}
 }
