@@ -122,7 +122,7 @@ export default class QuillComponent extends React.Component {
 		if (!modules.toolbar) {
 			// Don't mutate the original modules
 			// because it's shared between components.
-			modules = Object.assign({}, modules)
+			modules = {...modules}
 			modules.toolbar = {
 				container: React.findDOMNode(this.refs.toolbar)
 			}
