@@ -37,9 +37,10 @@ export default class QuillComponent extends React.Component {
 	}
 
 	updateEditor(editor, config) {
-		// NOTE: This tears the editor down, and reinitializes
-		//       it with the new config. Ugly but necessary
-		//       as there is no api for updating it.
+		// NOTE:
+		// This tears the editor down, and reinitializes it with the new
+		// config. Ugly but necessary as there is no api for updating it.
+
 		this.destroyEditor(editor)
 		this.createEditor(config)
 		return editor
