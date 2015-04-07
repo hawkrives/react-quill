@@ -3,7 +3,7 @@ export PATH := ./node_modules/.bin:$(PATH)
 LINT_FLAGS :=
 SPEC_FLAGS := -R spec
 COVERAGE_FLAGS := -R mocha-text-cov
-BABEL_FLAGS := --optional es7.classProperties --optional es7.objectRestSpread
+BABEL_FLAGS := --optional es7.classProperties
 
 level ?= patch
 
