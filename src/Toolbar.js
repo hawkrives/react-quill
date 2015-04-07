@@ -59,6 +59,17 @@ function renderAction({label, value, type}) {
 		title={label} />
 }
 
+function renderItem(item) {
+	const mapping = {
+		group: renderGroup,
+		align: renderChoices,
+		size: renderChoices,
+		action: renderAction,
+	}
+	const renderer = mapping[item.type] || mapping.action
+	return renderer(item)
+}
+
 export default class QuillToolbar extends React.Component {
 	static propTypes = {
 		className: T.string,
@@ -67,17 +78,6 @@ export default class QuillToolbar extends React.Component {
 
 	static defaultProps = {
 		items: defaultItems,
-	}
-
-	renderItem(item) {
-		const mapping = {
-			group: renderGroup,
-			align: renderChoices,
-			size: renderChoices,
-			action: renderAction,
-		}
-		const renderer = mapping[item.type] || mapping.action
-		return renderer(item)
 	}
 
 	render() {
