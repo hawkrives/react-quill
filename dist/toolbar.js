@@ -16,6 +16,10 @@ var _React = require('react');
 
 var _React2 = _interopRequireWildcard(_React);
 
+var _cx = require('classnames');
+
+var _cx2 = _interopRequireWildcard(_cx);
+
 var defaultItems = [{ label: 'Formats', type: 'group', items: [{ label: 'Size', type: 'size', items: [{ label: 'Normal', value: '' }, { label: 'Smaller', value: '0.8em' }, { label: 'Larger', value: '1.4em' }, { label: 'Huge', value: '2em' }] }, { label: 'Alignment', type: 'align', items: [{ label: 'Center', value: 'center' }, { label: 'Left', value: 'left' }, { label: 'Right', value: 'right' }, { label: 'Justify', value: 'justify' }] }] }, { label: 'Text', type: 'group', items: [{ label: 'Bold', type: 'bold' }, { label: 'Italic', type: 'italic' }, { label: 'Strike', type: 'strike' }, { label: 'Underline', type: 'underline' }, { label: 'Link', type: 'link' }] }, { label: 'Blocks', type: 'group', items: [{ label: 'Bullet', type: 'bullet' }, { label: 'List', type: 'list' }] }];
 
 var QuillToolbar = (function (_React$Component) {
@@ -96,7 +100,7 @@ var QuillToolbar = (function (_React$Component) {
 		value: function render() {
 			return _React2['default'].createElement(
 				'div',
-				{ className: cx('quill-toolbar', this.props.className) },
+				{ className: _cx2['default']('quill-toolbar', this.props.className) },
 				this.props.items.map(this.renderItem)
 			);
 		}
@@ -104,7 +108,6 @@ var QuillToolbar = (function (_React$Component) {
 		key: 'propTypes',
 		enumerable: true,
 		value: {
-			id: _React.PropTypes.string,
 			className: _React.PropTypes.string,
 			items: _React.PropTypes.array }
 	}, {
