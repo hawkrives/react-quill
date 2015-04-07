@@ -1,0 +1,56 @@
+---
+ecmaFeatures:
+  globalReturn: true  # allow return statements in the global scope
+  jsx: true  # enable JSX
+  modules: true  # enable modules
+
+parser: babel-eslint
+
+env:
+  browser: true
+  es6: true
+
+plugins:
+  - eslint-plugin-react
+
+# 1 means warning
+# 2 means error
+rules:
+  # possible errors
+  comma-dangle: 'always-multiline'
+  valid-jsdoc: 1
+
+  # best practices
+  curly: [2, 'multi-line']
+  guard-for-in: 2
+  default-case: 2
+  no-div-regex: 2
+  no-eq-null: 2
+  wrap-iife: 2
+  no-undef-init: 0
+  no-unused-vars: 1
+  no-console: 0
+  no-underscore-dangle: 0
+  strict: [1, never]
+
+  # es6
+  no-var: 2
+
+  # stylistic issues
+  new-cap: 0
+  indent: [1, tab]
+  camelcase: 2
+  comma-style: [1, last]
+  comma-spacing: [2, {before: false, after: true}]
+  key-spacing: [2, {beforeColon: false, afterColon: true}]
+  quotes: [2, single, 'avoid-escape']
+  consistent-this: [1, self]
+  brace-style: [1, stroustrup]
+  semi: [2, never]
+
+  # react rules
+  react/no-multi-comp: 1  # prevent multiple component definition per file
+  react/prop-types: 1  # prevent missing proptypes in a react component definition
+  react/wrap-multilines: 1  # prevent missing parentheses around multilines jsx
+  react/self-closing-comp: 1  # prevent extra closing tags for components without children
+  react/wrap-multilines: 0
