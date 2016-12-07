@@ -1,3 +1,9 @@
+ > This project is **deprecated**. I will provide no support for it in the future. Please use https://github.com/zenoamaro/react-quill instead.
+
+---
+---
+---
+
 React-Quill ![](https://travis-ci.org/zenoamaro/react-quill.svg?branch=master)
 ==============================================================================
 
